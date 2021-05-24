@@ -1,0 +1,28 @@
+.Control {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.Control .Name {
+    width: 30%;
+}
+
+.Control .Amount {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+}
+
+.Control .Price {
+    width: 30%;
+    text-align: right;
+}
+
+.Control .Total {
+    width: 20%;
+    text-align: right;
+}
+
+.Blue {
+    color: blue
+}

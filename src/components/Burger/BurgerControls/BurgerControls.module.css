@@ -1,0 +1,13 @@
+.BurgerControls {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 450px;
+    margin: auto;
+}
+
+.ButtonWrapper {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}

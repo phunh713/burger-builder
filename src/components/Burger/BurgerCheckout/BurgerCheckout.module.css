@@ -1,0 +1,23 @@
+.Checkout {
+    display: flex;
+    padding: 5px 10px;
+}
+
+.Name {
+    width: 30%;
+}
+
+.Amount {
+    width: 20%;
+    text-align: center;
+}
+
+.UnitPrice{
+    width: 25%;
+    text-align: right;
+}
+
+.Total {
+    width: 25%;
+    text-align: right;
+}

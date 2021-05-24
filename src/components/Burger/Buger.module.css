@@ -1,0 +1,8 @@
+.Burger {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    min-height: 500px;
+    width: 50%;
+}

@@ -1,0 +1,12 @@
+.Content {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+@media (max-width: 880px) {
+    .Content {
+        flex-direction: column;
+    }
+}
