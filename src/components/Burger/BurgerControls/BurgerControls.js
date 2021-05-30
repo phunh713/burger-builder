@@ -1,41 +1,54 @@
+import { useEffect, useState } from "react";
 import BurgerIngredientList from "../BurgerIngredient/IngredientList";
 import BurgerControlCategory from "./BurgerControlCategory/BurgerControlCategory";
 import classes from "./BurgerControls.module.css";
-import Aux from "../../../hoc/Auxiliary";
 
 const BurgerControls = (props) => {
-	let categoryArray = [];
-	for (let ingredient of BurgerIngredientList) {
-		let index = categoryArray.findIndex((category) => category === ingredient.type);
-		if (index === -1) categoryArray.push(ingredient.type);
-	}
+	const [categoryArray, setCategoryArray] = useState([]);
+	const [activeCategory, setActiveCategory] = useState(categoryArray[0]);
+
+	useEffect(() => {
+		let array = [];
+		for (let ingredient of BurgerIngredientList) {
+			if (ingredient.type === "Bread") continue;
+			let index = array.findIndex((category) => category === ingredient.type);
+			if (index === -1) array.push(ingredient.type);
+		}
+		setCategoryArray(array);
+		setActiveCategory(array[0]);
+	}, []);
 
 	const getCategoryArrayByType = (type) => {
 		return BurgerIngredientList.filter((ingredient) => ingredient.type === type);
 	};
 
-	const burgerControlCategoryArray = categoryArray
-		.filter((category) => category !== "Bread") //Remove Type Bread out of Array
-		.map((category) => (
+	return (
+		<div className={classes.BurgerControls}>
+			<div className={classes["ingredient-types"]}>
+				{categoryArray.map((category) => (
+					<div
+						key={category}
+						className={activeCategory === category ? classes.active : ""}
+						onClick={() => setActiveCategory(category)}
+					>
+						{category}
+					</div>
+				))}
+			</div>
 			<BurgerControlCategory
-				key={category}
-				categoryName={category}
-				ingredientByCategoryArray={getCategoryArrayByType(category)}
+				key={activeCategory}
+				categoryName={activeCategory}
+				ingredientByCategoryArray={getCategoryArrayByType(activeCategory)}
 				onAdd={props.onAdd}
 				onRemove={props.onRemove}
 				selectedIngredients={props.selectedIngredients}
 			/>
-		));
-
-	return (
-		<div className={classes.BurgerControls}>
-			{burgerControlCategoryArray}
 			<div className={classes.ButtonWrapper}>
 				{props.isDoneBuilding ? (
-					<Aux>
+					<>
 						<button onClick={() => props.onRemove("Bread Top")}>Edit</button>
 						<button onClick={props.onCheckout}>Checkout</button>
-					</Aux>
+					</>
 				) : (
 					<button onClick={() => props.onAdd("Bread Top")}>Done</button>
 				)}

@@ -1,4 +1,3 @@
-import Aux from "../../../hoc/Auxiliary";
 import Modal from "../../UI/Modal/Modal";
 import defaultIngredientList from "../BurgerIngredient/IngredientList";
 import classes from "./BurgerCheckout.module.css";
@@ -18,10 +17,9 @@ const BurgerCheckout = (props) => {
 		}
 	}
 
-	const totalPrice = checkoutArray.reduce(
-		(prevTotal, checkoutIngr) => prevTotal + checkoutIngr.amount * checkoutIngr.unitPrice,
-		0
-	).toFixed(2);
+	const totalPrice = checkoutArray
+		.reduce((prevTotal, checkoutIngr) => prevTotal + checkoutIngr.amount * checkoutIngr.unitPrice, 0)
+		.toFixed(2);
 
 	checkoutArray = checkoutArray
 		.filter((checkoutIngr) => checkoutIngr.name !== "Bread Top" && checkoutIngr.name !== "Bread Bottom")
@@ -35,7 +33,7 @@ const BurgerCheckout = (props) => {
 		));
 
 	return (
-		<Aux>
+		<>
 			{props.isShow ? (
 				<Modal onClose={props.onCancelCheckout} header="Check Out">
 					<div className={classes.Checkout}>
@@ -52,7 +50,7 @@ const BurgerCheckout = (props) => {
 					</div>
 				</Modal>
 			) : null}
-		</Aux>
+		</>
 	);
 };
 

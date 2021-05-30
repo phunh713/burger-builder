@@ -1,5 +1,4 @@
 import BurgerControl from "../BurgerControl/BurgerControl";
-import Aux from "../../../../hoc/Auxiliary";
 
 const BurgerControlCategory = (props) => {
 	const getAmount = (ingredientName) => {
@@ -16,10 +15,10 @@ const BurgerControlCategory = (props) => {
 		/>
 	));
 	return (
-		<Aux>
+		<>
 			<h4>{props.categoryName}</h4>
 			{ingredientByCategoryArray}
-		</Aux>
+		</>
 	);
 };
 

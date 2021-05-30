@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./Buger.module.css";
-import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
-import burgerIngredientList from "../../components/Burger/BurgerIngredient/IngredientList"
+import burgerIngredientList from "../BurgerIngredient/IngredientList"
+import BurgerIngredient from "../BurgerIngredient/BurgerIngredient";
 
 const Burger = (props) => {
     let currentThickness = 0;

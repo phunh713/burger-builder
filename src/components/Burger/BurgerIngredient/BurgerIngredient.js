@@ -1,6 +1,5 @@
 import classes from "./BurgerIngredient.module.css";
 import ingredients from "./IngredientList";
-import PropTypes from "prop-types"
 
 const BurgerIngredient = (props) => {
 	const theIngredient = ingredients.find((ingredient) => ingredient.name === props.type);
@@ -17,10 +16,5 @@ const BurgerIngredient = (props) => {
         return null
     }
 };
-
-BurgerIngredient.propTypes = {
-    type: PropTypes.string,
-    order: PropTypes.number
-}
 
 export default BurgerIngredient;
